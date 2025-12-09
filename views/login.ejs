@@ -1,0 +1,18 @@
+<% layout('layouts/boilerplate') %>
+<main>
+  <div class="container">
+    <h2>Log In</h2>
+    <form action="/login" method="post">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" />
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" />
+      </div>
+      <button type="submit">Log In</button>
+    </form>
+    <p>Don't have an account? <a href="/register">Register</a></p>
+  </div>
+</main>

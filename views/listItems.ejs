@@ -1,0 +1,54 @@
+<% layout('layouts/boilerplate') %>
+<main>
+  <div class="container">
+    <h2><%= listName.listName %></h2>
+    <div class="text-wrapper">
+      <p>Hello <%= user.username %></p>
+      <p><a href="/">View Lists</a></p>
+      <p><a href="logout">Log Out</a></p>
+    </div>
+    <form action="/createListItem" method="post" class="add-form">
+      <label for="listItem">Item Text</label>
+      <input type="text" name="listItem" id="listItem" />
+      <input
+        type="text"
+        name="listId"
+        id="listId"
+        value="<%= listName._id %>"
+        hidden
+      />
+      <button type="submit">Add Item</button>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="list">
+        <% listItems.forEach(listItem => { %>
+        <tr class="row" draggable="true">
+          <td class="item"><%= listItem.listItem %></td>
+          <td>
+            <form action="/editListItem/<%= listItem._id %>">
+              <button type="submit">Edit</button>
+            </form>
+          </td>
+          <td>
+            <form action="/deleteListItem/<%= listItem._id %>" method="post">
+              <button type="submit">Delete</button>
+              <input
+                type="text"
+                name="listId"
+                id="listId"
+                value="<%= listItem.listId %>"
+                hidden
+              />
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</main>

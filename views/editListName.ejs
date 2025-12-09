@@ -1,0 +1,14 @@
+<% layout('layouts/boilerplate') %>
+<main>
+  <h1>Edit List Name</h1>
+  <form action="/updateListName/<%= editListName._id %>" method="post">
+    <label for="listName">Update</label>
+    <input
+      type="text"
+      name="listName"
+      id="listName"
+      value="<%= editListName.listName %>"
+    />
+    <button type="submit">Update</button>
+  </form>
+</main>
