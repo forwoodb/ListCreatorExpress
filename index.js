@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import session from "express-session";
 import dotenv from "dotenv";
+import MongoStore from "connect-mongo";
 // Import Controllers
 import authRoutes from "./routes/authRoutes.js";
 import listNameRoutes from "./routes/listNamesRoutes.js";
@@ -31,6 +32,12 @@ app.set("views", "views");
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
+const store = new MongoStore({
+  mongoUrl: process.env.MONGO_URI,
+  secret: "notagoodsecret",
+  touchAfter: 60 * 60 * 24,
+});
 app.use(
   session({
     secret: "notagoodsecret",
