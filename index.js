@@ -40,6 +40,7 @@ const store = new MongoStore({
 });
 app.use(
   session({
+    store,
     secret: "notagoodsecret",
     resave: false,
     saveUninitialized: true,
