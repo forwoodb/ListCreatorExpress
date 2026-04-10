@@ -81,12 +81,12 @@
 /********** List **********/
 @media screen and (min-width: 0px) {
   .container {
-    border-radius: 5px;
     max-width: 35rem;
-    margin: 5rem auto;
+    margin: auto;
     padding: 1rem;
     background-color: var(--color-two);
     box-shadow: 5px 5px 5px var(--color-three);
+    border-radius: 5px;
   }
 
   .container .add-form {
@@ -134,13 +134,15 @@
   }
 
   .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border-collapse: separate;
+    border-spacing: 0 10px; */
     max-width: 525px;
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: var(--color-one);
     transition: all 0.2s ease-in-out;
   }
@@ -164,7 +166,7 @@
   }
 
   .item {
-    width: 60%;
+    width: 70%;
   }
 
   .delete {
